@@ -1,0 +1,566 @@
+﻿@model DASAPI.Models.Users
+@{
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html data-editor-version="2" class="sg-campaigns" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <!--[if !mso]><!-->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <!--<![endif]-->
+    <!--[if (gte mso 9)|(IE)]>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+    <!--[if (gte mso 9)|(IE)]>
+      <style type="text/css">
+        body {width: 600px;margin: 0 auto;}
+        table {border-collapse: collapse;}
+        table, td {mso-table-lspace: 0pt;mso-table-rspace: 0pt;}
+        img {-ms-interpolation-mode: bicubic;}
+      </style>
+    <![endif]-->
+    <style type="text/css">
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 300;
+            src: local('Poppins Light'), local('Poppins-Light'), url(https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLDz8Z11lFc-K.woff2) format('woff2');
+            unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 300;
+            src: local('Poppins Light'), local('Poppins-Light'), url(https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLDz8Z1JlFc-K.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 300;
+            src: local('Poppins Light'), local('Poppins-Light'), url(https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLDz8Z1xlFQ.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Poppins Regular'), local('Poppins-Regular'), url(https://fonts.gstatic.com/s/poppins/v9/pxiEyp8kv8JHgFVrJJbecmNE.woff2) format('woff2');
+            unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Poppins Regular'), local('Poppins-Regular'), url(https://fonts.gstatic.com/s/poppins/v9/pxiEyp8kv8JHgFVrJJnecmNE.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Poppins Regular'), local('Poppins-Regular'), url(https://fonts.gstatic.com/s/poppins/v9/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 500;
+            src: local('Poppins Medium'), local('Poppins-Medium'), url(https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLGT9Z11lFc-K.woff2) format('woff2');
+            unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 500;
+            src: local('Poppins Medium'), local('Poppins-Medium'), url(https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLGT9Z1JlFc-K.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 500;
+            src: local('Poppins Medium'), local('Poppins-Medium'), url(https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Poppins SemiBold'), local('Poppins-SemiBold'), url(https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLEj6Z11lFc-K.woff2) format('woff2');
+            unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Poppins SemiBold'), local('Poppins-SemiBold'), url(https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLEj6Z1JlFc-K.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Poppins SemiBold'), local('Poppins-SemiBold'), url(https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        div.footer-content {
+            padding: 0;
+        }
+
+        .footer > p {
+            font-family: Poppins;
+            font-weight: 200;
+        }
+
+        div.footer-content {
+            margin-left: 0;
+        }
+
+            div.footer-content a {
+                padding-left: 10px;
+                margin: 0 8px 0 0;
+                text-align: center;
+                text-decoration: none;
+            }
+
+        @@media screen and (max-width: 600px) {
+            div.footer-content div a {
+                padding-left: 0;
+            }
+        }
+
+        div.footer-content + p {
+            font-size: 13px;
+        }
+
+        .company {
+            font-size: 14px;
+            text-align: center;
+        }
+
+        body, p, div {
+            font-family: inherit;
+            font-family: Poppins;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            letter-spacing: 1.65px;
+        }
+
+        /* body {
+            color: #000000;
+        }*/
+
+        .communication a, .communicate {
+            text-decoration: none;
+            color: #1084B4;
+        }
+        /**/
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        table.wrapper {
+            width: 100% !important;
+            /*table-layout: fixed;
+           -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: 100%;
+            -moz-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;*/
+        }
+
+        img.max-width {
+            float: left;
+            width: 180px;
+        }
+
+        .column.of-2 {
+            width: 50%;
+        }
+
+        .column.of-3 {
+            width: 33.333%;
+        }
+
+        .column.of-4 {
+            width: 25%;
+        }
+
+        btn-register {
+            color: #fff !important;
+            text-decoration: none;
+        }
+
+        .register {
+            color: #fff !important;
+            text-decoration: none;
+        }
+
+        .module .terms, .terms {
+            text-decoration: none;
+        }
+
+        @@media screen and (max-width:480px) {
+            .preheader .rightColumnContent, .footer .rightColumnContent {
+                text-align: left !important;
+            }
+
+                .preheader .rightColumnContent div,
+                .preheader .rightColumnContent span,
+                .footer .rightColumnContent div,
+                .footer .rightColumnContent span {
+                    text-align: left !important;
+                }
+
+            .preheader .rightColumnContent,
+            .preheader .leftColumnContent {
+                font-size: 80% !important;
+                padding: 5px 0;
+            }
+
+            table.wrapper-mobile {
+                width: 100% !important;
+                table-layout: fixed;
+            }
+
+            img.max-width {
+                float: left;
+                width: 180px;
+            }
+
+            a.bulletproof-button {
+                display: block !important;
+                width: auto !important;
+                font-size: 80%;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+        }
+
+        .columns {
+            width: 100% !important;
+        }
+
+        .column {
+            display: block !important;
+            width: 100% !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+        /*        }*/
+    </style>
+    <style>
+        @@font-face {
+            font-family: 'Poppins';
+            src: local('PoppinsRegular'), url(../../wwwroot/Fonts/poppins/Poppins-Regular.ttf) format('truetype');
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            src: url('../../wwwroot/Fonts/poppins/Poppins-gregular.woff2') format('woff2');
+        }
+
+
+        @@font-face {
+            font-family: 'Poppins';
+            src: url('../../wwwroot/Fonts/poppins/Poppins-RegularG.woff2') format('woff2');
+        }
+
+
+        @@font-face {
+            font-family: 'Poppins';
+            src: url('../../wwwroot/Fonts/poppins/Poppins-Regular.woff2') format('woff2');
+        }
+
+
+        body .wrapper {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style><!--End Head user entered-->
+</head>
+<body>
+    <div class="wrapper" style="font-size:14px;width:100%;font-family: 'Poppins', sans-serif; color:#333;background-color: #f5f6f9">
+        <div class="webkit" style="background-color: #f5f6f9;">
+            <table cellpadding="0" cellspacing="0" border="0" style="width:100%;background-color:#f5f6f9" class="wrapper">
+                <tbody>
+                    <tr>
+                        <td valign="top" align="center" width="100%" style="background-color: #f5f6f9">
+                            <table style="width:100%;" role="content-container" sty;e="background-color:#f5f6f9;" class="outer" cellpadding="0" cellspacing="0" border="0">
+                                <tbody>
+                                    <tr>
+                                        <td width="100%">
+                                            <table style="width:100%;background-color:#f5f6f9;" cellpadding="0" cellspacing="0" border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <table class="module" cellpadding="0" cellspacing="0" border="0" style="width:100%;height:100%;background-color:#f5f6f9;">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="module" role="modules-container" width="100%" style="color:#333; text-align:left;width:100%;background-color:#f5f6f9;table-layout:fixed;">
+                                                                            <table class="module preheader preheader-hide" role="module" data-type="preheader" border="0" cellpadding="0" cellspacing="0" width="600" style="display: none !important; mso-hide: all; visibility: hidden; opacity: 0; color: transparent; height: 0; width: 0;">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td role="module-content">
+                                                                                            <p></p>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+
+                                                                            <table class="module" data-type="text" border="0" cellpadding="0" cellspacing="0" align="center" role="module" width="600">
+                                                                                <tbody>
+                                                                                    <tr role="module-content">
+                                                                                        <td height="100%" valign="top" width="100%" align="center" style="padding-top:30px;">
+                                                                                            <table class="module" align="center" role="module" style="border-spacing:0; border-collapse:collapse; margin:0 auto 0 auto;" cellpadding="0" cellspacing="0" border="0" width="600" align="center">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td width="600" align="center" style="padding:40px;border-spacing:0;background:#fff;">
+                                                                                                            
+                                                                                                            <table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="600" style="table-layout: fixed;margin: 0 auto;" data-muid="a265ebb9-ab9c-43e8-9009-54d6151b1600" data-mc-module-version="2019-10-22" align="center">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td style="line-height: 1.7; font-size:6px; line-height:10px; padding:0px 0px 0px 10px;text-align: inherit; color: #333; margin: 0 auto;" height="100%" align="left" role="module-content">
+                                                                                                                            <img class="max-width" border="0" style="display:block; color:#000000; text-decoration:none; font-size:16px;" alt="" data-proportionally-constrained="true" data-responsive="false" src="https://tracker.zoifintech.com/LoginAssets/images/zoi-fintech-services.png" />
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                            <table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="600" style="table-layout: fixed;margin: 0 auto;" data-muid="a265ebb9-ab9c-43e8-9009-54d6151b1600" data-mc-module-version="2019-10-22" align="center">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td style="line-height: 1.7; padding: 0px 0px 48px 0px;border-bottom: 2px solid #F5F6F9;text-align: inherit; color: #333; margin: 0 auto;" height="100%" align="center" role="module-content">
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+
+                                                                                                            <table class="module" role="module" data-type="text" border="0" width="600" cellpadding="0" cellspacing="0" style="table-layout:fixed;margin: 0 auto;" data-muid="a265ebb9-ab9c-43e8-9009-54d6151b1600" data-mc-module-version="2019-10-22" align="center">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td style="line-height: 36px; padding: 50px 30px 10px 0px; text-align: inherit; color: #333; margin: 0 auto;" height="100%" align="left" role="module-content">
+                                                                                                                            <div>
+                                                                                                                                <div width="100%" style="font-family: 'Poppins', sans-serif;color: #333; text-align: left ">
+                                                                                                                                    <span style="font-size: 18px;color: #333;font-size: 16px; margin-bottom: 10px; font-weight: 700; font-family: 'Poppins', sans-serif;">
+                                                                                                                                        Dear @Model.Name, &nbsp;
+                                                                                                                                    </span>
+                                                                                                                                </div>
+
+                                                                                                                            </div>
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                            <table class="module" role="module" data-type="text" border="0" width="600" cellpadding="0" cellspacing="0" style="table-layout:fixed;margin: 0 auto;" data-muid="a265ebb9-ab9c-43e8-9009-54d6151b1600" data-mc-module-version="2019-10-22" align="center">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td style="line-height: 1.7;text-align: inherit;color: #333;margin: 0 auto;" height="100%" align="center" role="module-content">
+                                                                                                                            <div>
+                                                                                                                                @*@if (!Model.IsResetPassword)
+                                                                                                                                {*@
+                                                                                                                                    <div width="100%" style="font-family: inherit;color: #333; text-align: left"><span style="font-size: 16px;font-family: 'Poppins', sans-serif;">You have been invited to join DAS by <strong>Admin</strong>.</span><span style="color: #333;font-size: 16px; font-family: 'Poppins', sans-serif;"> To finish your registration, please click the button below</span><span style="font-size: 16px">.</span></div>
+                                                                                                                               @* }
+                                                                                                                                else
+                                                                                                                                {
+                                                                                                                                    <div width="100%" style="font-family: inherit;color: #333; text-align: left"><span style="font-size: 16px;font-family: 'Poppins', sans-serif;">A Request has been received to Reset the password for your trakzo Account .</span><span style="color: #333;font-size: 16px; font-family: 'Poppins', sans-serif;">Kindly click below Reset Password button </span><span style="font-size: 16px">.</span></div>
+                                                                                                                                }*@
+                                                                                                                            </div>
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                            <table class="module btn-register" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" style="table-layout: fixed; margin: 0 auto;" data-muid="a265ebb9-ab9c-43e8-9009-54d6151b1600" data-mc-module-version="2019-10-22" align="center">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td align="center" style="padding: 0.85em 0 0 0;">
+                                                                                                                            <!--[if mso]>
+        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:35px;v-text-anchor:middle;width:115px;" arcsize="10%" stroke="f" fillcolor="#0080b2">
+            <w:anchorlock/>
+            <center style="color:#ffffff;font-family:'Poppins',sans-serif;font-size:16px;font-weight:bold;">
+                 Register
+            </center>
+        </v:roundrect>
+        <![endif]-->
+                                                                                                                            <!--[if !mso]> <!-->
+                                                                                                                            <table border="0" cellpadding="0" cellspacing="0" style="text-align:center;">
+                                                                                                                                <tbody>
+                                                                                                                                    <tr>
+                                                                                                                                        <td height="35" align="center" class="module"
+                                                                                                                                            style="padding:0 20px; font-size: 16px; text-align: center; letter-spacing:1.65px;
+                                                                                                                                                    background-color:#0080b2;font-weight:500; line-height:1.7;margin:0 auto;border-radius:4px 4px;">
+                                                                                                                                            @*@if (!Model.IsResetPassword)
+                                                                                                                                            {*@
+                                                                                                                                                <a href="da.zoiftspl.com" class="register" target="_blank" style="color:#fff;text-decoration:none;font-family: 'Poppins', sans-serif;">
+
+                                                                                                                                                    Register
+                                                                                                                                                </a>
+                                                                                                                                           @* }
+                                                                                                                                            else
+                                                                                                                                            {
+                                                                                                                                                <a href="da.zoiftspl.com" class="register" target="_blank" style="color:#fff;text-decoration:none;font-family: 'Poppins', sans-serif;">
+
+                                                                                                                                                    Reset Password
+                                                                                                                                                </a>
+                                                                                                                                            }
+*@
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                </tbody>
+                                                                                                                            </table>
+                                                                                                                            <!-- <![endif]-->
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+
+                                                                                                            <table class="module" role="module" data-type="text" border="0" cellpadding="0" width="600" cellspacing="0" style="table-layout: fixed;margin: 0 auto;" data-muid="a265ebb9-ab9c-43e8-9009-54d6151b1600" data-mc-module-version="2019-10-22" align="center">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td style="line-height: 1.7;font-size: 13px;text-align: left;padding: 24px 0px 0px 0px;margin: 16px 0;color: #333;margin: 0 auto;" height="100%" align="left" role="module-content">
+                                                                                                                            <table>
+                                                                                                                                <tbody>
+                                                                                                                                    <tr>
+                                                                                                                                        <td style="padding-bottom: 0.65em;">
+                                                                                                                                            <div style="line-height: 1.7;  font-family: 'Poppins', sans-serif; text-align: left;font-family: 'Poppins', sans-serif;"><span style="color: #333;font-size: 16px;">Thanks,&nbsp;</span></div>
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                    <tr>
+                                                                                                                                        <td>
+                                                                                                                                            <div style=" line-height: 1.7;  font-family: 'Poppins', sans-serif; text-align: left"><span style="color: #333; font-size: 16px;font-family: 'Poppins', sans-serif;">Your Productivity Partner&nbsp;</span></div><div></div>
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                </tbody>
+                                                                                                                            </table>
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+
+                                                                                                            <table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="600" style="table-layout: fixed;margin: 0 auto;" data-muid="a265ebb9-ab9c-43e8-9009-54d6151b1600" data-mc-module-version="2019-10-22" align="center">
+                                                                                                                <tbody>
+                                                                                                                    <tr>
+                                                                                                                        <td class="footer" style="text-align: inherit;font-size: 13px;text-align: center;color: #333; padding: 16px 0 0 0;margin: 0 auto;" height="100%" align="center" role="module-content">
+                                                                                                                            <div class="footer-content" style="font-size: 14px; font-family: 'Poppins', sans-serif; list-style-type: none; line-height: 1.7; padding: 16px 0 0 0;  color: #1084B4; margin-bottom: 0;width:100%;">
+
+                                                                                                                                <a href="https://www.trakzo.ai/privacy-policy/" class="terms" style="text-decoration:none;color: #1084B4;">Privacy Policy</a>
+                                                                                                                                &nbsp;&nbsp;
+                                                                                                                                <a href="https://www.trakzo.ai/terms-of-use/" class="terms" style="text-decoration: none; color: #1084B4;">Terms Of Use</a>
+                                                                                                                                &nbsp;&nbsp;
+                                                                                                                                <a href="https://www.trakzo.ai/acceptable-use/" class="terms" style="text-decoration: none; color: #1084B4;">Acceptable Use Policy</a>
+                                                                                                                            </div>
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+
+                                                                            <table border="0" cellpadding="0" cellspacing="0" class="module" data-role="module-button" data-type="button" role="module" style="table-layout:fixed;background-color:#f5f6f9;" width="100%" data-muid="550f60a9-c478-496c-b705-077cf7b1ba9a">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td align="center" bgcolor="" class="outer-td" style="padding: 0; padding-top: 16px;">
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+
+                                                                            <table class="module communication" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="680" style="table-layout: fixed;" data-muid="a265ebb9-ab9c-43e8-9009-54d6151b1600" data-mc-module-version="2019-10-22" align="center">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td style="line-height: 1.7;text-align: inherit;background-color: #E7EAF6;font-size: 13px;text-align: center;padding: 16px 8px;color: #333;" height="100%" align="center" role="module-content">
+                                                                                            <table style="width:100%;">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td style="padding-bottom:0.65em;">
+                                                                                                            <div style="font-family: inherit;line-height: 1.7; text-align: center;">
+                                                                                                                <div style="color: #333; font-size: 14px;font-weight:600;font-family: 'Poppins', sans-serif;">
+                                                                                                                    For any assistance, please write to us at
+                                                                                                                    <a class="communicate" href="#" style="cursor: pointer;color:#1084B4;text-decoration:none;font-family: 'Poppins', sans-serif;">team@zoifintech.com</a>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td>
+                                                                                                            <div style="line-height: 1.7; font-family: inherit; text-align: center">
+                                                                                                                <div style="color: #333;font-size: 14px;font-weight: 600;font-family: 'Poppins', sans-serif;">Assuring you of our best service, always!&nbsp;</div>
+                                                                                                            </div>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+
+
+                                                                            <table style="margin:0 auto;" width="600" align="center">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td style="padding: 20px 0 30px 0;" align="center" width="600">
+                                                                                            <div>
+                                                                                                <div style="line-height:1.7;color: #333;font-family: 'Poppins', sans-serif; font-size: 14px;text-align: center;" class="company company-address">ZOI Fintech Services Pvt Ltd. Mumbai-400059, India</div>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+   
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
